@@ -1,0 +1,12 @@
+Rede neural rasa:
+    - 120 épocas
+    - Seed fixada em 42
+    - model = keras.models.Sequential([
+            keras.layers.Flatten(input_shape=[128, 128, 3]),
+            keras.layers.Dense(300, activation='relu'),
+            keras.layers.Dense(100, activation='relu'),
+            keras.layers.Dense(10, activation='softmax')
+        ])
+    - 133 imagens de treino (10 delas para validação)
+    - 42 imagens de teste
+    - Todas imagens foram tratadas
