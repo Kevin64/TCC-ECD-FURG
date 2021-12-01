@@ -1,12 +1,31 @@
 Rede neural rasa:
-    - 120 épocas
+    - 80 épocas
     - Seed fixada em 42
     - model = keras.models.Sequential([
             keras.layers.Flatten(input_shape=[128, 128, 3]),
-            keras.layers.Dense(300, activation='relu'),
+            keras.layers.Dense(10000, activation='relu'),
+            keras.layers.Dense(1000, activation='relu'),
             keras.layers.Dense(100, activation='relu'),
-            keras.layers.Dense(10, activation='softmax')
+            keras.layers.Dense(7, activation='softmax')
         ])
-    - 133 imagens de treino (10 delas para validação)
-    - 42 imagens de teste
-    - Todas imagens foram tratadas
+    - 175 imagens de treino (25 delas para validação)
+    - 105 imagens de teste
+    - Imagens de teste não-tratadas
+    - Resultados na classificação das imagens de teste - loss: 5.6345 - accuracy: 0.2381
+
+    - Seed fixada em 42
+    - model = keras.models.Sequential([
+            keras.layers.Flatten(input_shape=[128, 128]),
+            keras.layers.Dense(5000, activation='relu'),
+            keras.layers.Dense(500, activation='relu'),
+            keras.layers.Dense(50, activation='relu'),            
+            keras.layers.Dense(7, activation='softmax')
+        ])
+    - 1322 imagens de treino
+    - 100 imagens de teste
+    - 100 imagens de validação
+    - Todas as imagens tratadas
+    - 150 épocas
+        - Resultados na classificação das imagens de teste - loss: 0.4932 - accuracy: 0.8800
+    - 500 épocas
+        - Resultados na classificação das imagens de teste - loss: 0.1746 - accuracy: 0.9700
