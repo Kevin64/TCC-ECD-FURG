@@ -1,0 +1,23 @@
+Rede neural densa:
+    - Seed fixada em 42
+    - 3 canais de cores
+    - model = keras.models.Sequential([
+                keras.layers.Flatten(input_shape=[64, 64, 3]),
+                keras.layers.Dense(1000, activation='relu'),
+                keras.layers.Dense(1000, activation='relu'),
+                keras.layers.Dense(1000, activation='relu'),            
+                keras.layers.Dense(7, activation='softmax')
+            ])
+        - 14336 imagens
+            - 10752 imagens de treino
+            - 1792 imagens de teste
+            - 1792 imagens de validação            
+        - Conjunto igualmente distribuído entre datasets
+        - Imagens rotacionadas em todas as direções
+        - Todas as imagens tratadas        
+        - 500 épocas - SGD 0.01 - ~16min (GPU)
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.00007839657337171957
+            - erro de validação: 0.08239085227251053
+            - erro de teste:     [0.09710822254419327, 0.9698660969734192]
+        - Menor tempo de treinamento: 150 épocas

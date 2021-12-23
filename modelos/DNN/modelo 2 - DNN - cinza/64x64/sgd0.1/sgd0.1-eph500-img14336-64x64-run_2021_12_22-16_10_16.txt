@@ -1,0 +1,22 @@
+Rede neural densa:
+    - Seed fixada em 42
+    - Apenas tons de cinza
+    - model = keras.models.Sequential([
+                keras.layers.Flatten(input_shape=[64, 64]),
+                keras.layers.Dense(1000, activation='relu'),
+                keras.layers.Dense(1000, activation='relu'),
+                keras.layers.Dense(1000, activation='relu'),            
+                keras.layers.Dense(7, activation='softmax')
+            ])
+        - 14336 imagens
+            - 10752 imagens de treino
+            - 1792 imagens de teste
+            - 1792 imagens de validação            
+        - Conjunto igualmente distribuído entre datasets
+        - Imagens rotacionadas em todas as direções
+        - Todas as imagens tratadas        
+        - 500 épocas - SGD 0.1 - ~13min (GPU)
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.2066614031791687
+            - erro de validação: 0.2977777421474457
+            - erro de teste:     [0.3225173354148865, 0.8716517686843872]
