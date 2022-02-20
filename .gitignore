@@ -6,3 +6,4 @@ dataset/
 *.pb
 *.gz
 *.h5
+*.7z

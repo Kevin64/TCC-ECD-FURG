@@ -1,0 +1,115 @@
+Rede neural convolucional:
+    - Seed fixada em 42
+    - 3 canais de cores
+    - 42238 imagens
+            - 33790 imagens de treino
+            - 8448 imagens de validação            
+        - 72 imagens de teste
+        - Conjunto igualmente distribuído entre datasets
+        - Imagens com variações geradas automaticamente
+        - Todas as imagens tratadas        
+        - 15 épocas - ~6min (GPU)
+        - Menor tempo de treinamento: 15 épocas
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 3, strides = 1, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(128, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])        
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.11884252727031708
+            - erro de validação: 0.111606165766716
+            - erro de teste:     [0.9531761407852173, 0.6896551847457886]
+
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 5, strides = 1, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(128, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.13988004624843597
+            - erro de validação: 0.12311489135026932
+            ***- erro de teste:     [0.7498283386230469, 0.7379310131072998] ***
+
+            - erro de treino:    0.1591879278421402
+            - erro de validação: 0.1633928120136261
+            - erro de teste:     [0.3031080365180969, 0.9027777910232544]
+            - (os.environ['TF_CUDNN_DETERMINISTIC']='0')
+
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 5, strides = 2, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(128, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.16782915592193604
+            - erro de validação: 0.15712524950504303
+            - erro de teste:     [0.7855797410011292, 0.7586206793785095]
+
+            - erro de treino:    0.1824289858341217
+            - erro de validação: 0.12379126250743866
+            - erro de teste:     [0.8389809727668762, 0.6758620738983154]
+
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 7, strides = 1, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(128, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.1978420466184616
+            - erro de validação: 0.1607549786567688
+            - erro de teste:     [1.0123118162155151, 0.7034482955932617]
+
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 7, strides = 1, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 5, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(128, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.2118287831544876
+            - erro de validação: 0.14885184168815613
+            - erro de teste:     [0.8591997027397156, 0.7241379022598267]

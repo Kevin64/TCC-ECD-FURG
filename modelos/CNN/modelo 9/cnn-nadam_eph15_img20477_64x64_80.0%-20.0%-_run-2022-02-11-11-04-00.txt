@@ -1,0 +1,32 @@
+Rede neural convolucional:
+    - Seed fixada em 42
+    - 3 canais de cores
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 3, strides = 1, padding = 'same', activation = activation, input_shape = [dimensionR, dimensionC, channels]),
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = activation),              
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 128, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 256, kernel_size = 3, strides = 1, padding = 'same', activation = activation),             
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(512, activation = activation),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(256, activation = activation),
+                keras.layers.Dense(7, activation = activation_out)
+        ])
+        - 42238 imagens
+            - 33790 imagens de treino
+            - 8448 imagens de validação            
+        - 72 imagens de teste
+        - Conjunto igualmente distribuído entre datasets
+        - Imagens com variações geradas automaticamente
+        - Todas as imagens tratadas        
+        - 15 épocas - ~8min (GPU)
+        - Menor tempo de treinamento: 15 épocas
+        - Resultados dos erros de treino, validação e teste:
+            - erro de treino:    0.07397641241550446
+            - erro de validação: 0.05342182144522667
+            - erro de teste:     [1.3197736740112305, 0.6896551847457886]
