@@ -115,3 +115,26 @@ Rede neural convolucional:
             - erro de treino:    0.09235537797212601
             - erro de validação: 0.08321037888526917
             - erro de teste:     [0.7255523800849915, 0.7241379022598267]
+
+
+    - model = keras.models.Sequential([
+                keras.layers.Conv2D(filters = 32, kernel_size = 5, strides = 1, padding = 'same', activation = 'relu', input_shape = [64, 64, 3]),           
+                keras.layers.MaxPool2D(pool_size = 2),
+                keras.layers.Conv2D(filters = 64, kernel_size = 3, strides = 1, padding = 'same', activation = 'relu'),              
+                keras.layers.MaxPool2D(pool_size = 2),  
+                keras.layers.Conv2D(filters = 96, kernel_size = 3, strides = 1, padding = 'same', activation = 'relu'),              
+                keras.layers.MaxPool2D(pool_size = 2), 
+                keras.layers.Flatten(),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(512, activation = 'relu'),
+                keras.layers.Dropout(0.25),
+                keras.layers.Dense(256, activation = 'relu'),
+                keras.layers.Dropout(0.25),
+                keras.layers.Dense(64, activation = 'relu'),
+                keras.layers.Dense(7, activation = 'softmax')
+        ])        
+        - 8 épocas
+        - Resultados dos erros de treino, validação e teste:
+                - erro de treino:    0.221289724111557
+                - erro de validação: 0.22307300567626953
+                - erro de teste:     [0.6847280859947205, 0.800000011920929]
