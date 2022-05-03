@@ -1,6 +1,6 @@
 venv/
-dataset/
-*.png
+venv3.9.10/
+dataset.old/
 *.v2
 *.profile-empty
 *.pb
