@@ -1,6 +1,4 @@
 venv/
-dataset/
-*.png
 *.v2
 *.profile-empty
 *.pb
