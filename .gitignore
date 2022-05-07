@@ -1,4 +1,5 @@
 .vscode/
+bak/
 venv/
 venv3.9.10/
 dataset.old/
